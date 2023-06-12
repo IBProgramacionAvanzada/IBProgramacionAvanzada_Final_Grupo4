@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "G7RUyY3sS/hM5vbH6aF+RZGfohWIRSzAY4L+zWbObPdDG7ZL3H/TPKOSUZdY3QOOqQLb7dJRSSHtAdoXKkFPPw==",
+  "success": true,
+  "projectFilePath": "/home/camila/Documents/programacion avanzada/IBProgramacionAvanzada_Final_Grupo4/src/Librerias/Librerias.fsproj",
+  "expectedPackageFiles": [
+    "/home/camila/.nuget/packages/fsharp.core/7.0.200/fsharp.core.7.0.200.nupkg.sha512"
+  ],
+  "logs": []
+}
