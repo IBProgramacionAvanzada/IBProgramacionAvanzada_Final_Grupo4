@@ -4,10 +4,25 @@
 open System
 open Library
 
-reactiveKey()
-gravity()
+[<EntryPoint>]
+let main args =
 
-UtilsView.printMappa (mappa.getIstanceWith blocco)
+    let rand = System.Random()
 
-// NO END RN
-System.Threading.Thread.Sleep(-1);
+    let mutable blocco: Blocco = new Blocco((Utils.initBloccoInt 3 3 0), 3, 6)
+
+    blocco.generateRandom (rand.Next(1, 5))
+
+    let mappa: Mappa = new Mappa(20, 20)
+
+    mappa.initFloor
+
+    reactiveKey()
+    gravity()
+
+    UtilsView.printMappa (mappa.getIstanceWith blocco)
+
+    // NO END RN
+    System.Threading.Thread.Sleep(-1);
+
+    0

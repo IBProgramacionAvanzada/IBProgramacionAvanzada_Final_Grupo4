@@ -1,26 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "/home/camila/Documents/programacion avanzada/IBProgramacionAvanzada_Final_Grupo4/src/Librerias/Librerias.fsproj": {}
+    "/home/rac/IBProgramacionAvanzada_Final_Grupo4/Tetris/src/Librerias/Librerias.fsproj": {}
   },
   "projects": {
-    "/home/camila/Documents/programacion avanzada/IBProgramacionAvanzada_Final_Grupo4/src/Librerias/Librerias.fsproj": {
+    "/home/rac/IBProgramacionAvanzada_Final_Grupo4/Tetris/src/Librerias/Librerias.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/camila/Documents/programacion avanzada/IBProgramacionAvanzada_Final_Grupo4/src/Librerias/Librerias.fsproj",
+        "projectUniqueName": "/home/rac/IBProgramacionAvanzada_Final_Grupo4/Tetris/src/Librerias/Librerias.fsproj",
         "projectName": "Librerias",
-        "projectPath": "/home/camila/Documents/programacion avanzada/IBProgramacionAvanzada_Final_Grupo4/src/Librerias/Librerias.fsproj",
-        "packagesPath": "/home/camila/.nuget/packages/",
-        "outputPath": "/home/camila/Documents/programacion avanzada/IBProgramacionAvanzada_Final_Grupo4/src/Librerias/obj/",
+        "projectPath": "/home/rac/IBProgramacionAvanzada_Final_Grupo4/Tetris/src/Librerias/Librerias.fsproj",
+        "packagesPath": "/home/rac/.nuget/packages/",
+        "outputPath": "/home/rac/IBProgramacionAvanzada_Final_Grupo4/Tetris/src/Librerias/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/camila/.nuget/NuGet/NuGet.Config"
+          "/home/rac/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "/home/camila/.dotnet/sdk/7.0.203/FSharp/library-packs": {},
+          "/usr/share/dotnet/sdk/7.0.304/FSharp/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -37,7 +37,7 @@
             "FSharp.Core": {
               "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
               "target": "Package",
-              "version": "[7.0.200, )",
+              "version": "[7.0.300, )",
               "generatePathProperty": true
             }
           },
@@ -57,7 +57,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/home/camila/.dotnet/sdk/7.0.203/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.304/RuntimeIdentifierGraph.json"
         }
       }
     }

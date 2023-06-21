@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "HmgV/i4qZAvPonIw6g9UjxXoUq2T973OlxTYoqLl2FYyc6OLRUIiveVkIO7ZAqRc+tS0tB4Vpo9qBHVyBNRwaA==",
+  "dgSpecHash": "7AZG8QJLvXaUyLm46g2+OCW3UqgVcTrQQM+ntcfeUKYgpvdLijm8LFUQG4TpPq4VMtYb05ImEDy41YjYyC4GNQ==",
   "success": true,
-  "projectFilePath": "/home/camila/Documents/programacion avanzada/IBProgramacionAvanzada_Final_Grupo4/src/Tetris/Tetris.fsproj",
+  "projectFilePath": "/home/rac/IBProgramacionAvanzada_Final_Grupo4/Tetris/src/Tetris/Tetris.fsproj",
   "expectedPackageFiles": [
-    "/home/camila/.nuget/packages/fsharp.core/7.0.200/fsharp.core.7.0.200.nupkg.sha512"
+    "/home/rac/.nuget/packages/fsharp.core/7.0.300/fsharp.core.7.0.300.nupkg.sha512"
   ],
   "logs": []
 }

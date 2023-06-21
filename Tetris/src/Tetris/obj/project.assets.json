@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net7.0": {
-      "FSharp.Core/7.0.200": {
+      "FSharp.Core/7.0.300": {
         "type": "package",
         "compile": {
           "lib/netstandard2.1/FSharp.Core.dll": {
@@ -55,19 +55,32 @@
             "locale": "zh-Hant"
           }
         }
+      },
+      "Librerias/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "FSharp.Core": "7.0.300"
+        },
+        "compile": {
+          "bin/placeholder/Librerias.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Librerias.dll": {}
+        }
       }
     }
   },
   "libraries": {
-    "FSharp.Core/7.0.200": {
-      "sha512": "NmgUnpNH6Zu9B0SPIhojyo38gnPdkdYFYQfbd6zosEH32kbGY/g/Klk7PfOWe1NAe/O1YOMmK9KhwQ2OWsWEbg==",
+    "FSharp.Core/7.0.300": {
+      "sha512": "8vvItREJ1l5lcp3vBCSJ1mFevVAhR48I34DuF/EoUa7o1KlFpQpagyuZkVYMAsHPIjdp47ZxM9sI4eqeXaeWkA==",
       "type": "package",
-      "path": "fsharp.core/7.0.200",
+      "path": "fsharp.core/7.0.300",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "fsharp.core.7.0.200.nupkg.sha512",
+        "fsharp.core.7.0.300.nupkg.sha512",
         "fsharp.core.nuspec",
         "lib/netstandard2.0/FSharp.Core.dll",
         "lib/netstandard2.0/FSharp.Core.xml",
@@ -100,39 +113,49 @@
         "lib/netstandard2.1/zh-Hans/FSharp.Core.resources.dll",
         "lib/netstandard2.1/zh-Hant/FSharp.Core.resources.dll"
       ]
+    },
+    "Librerias/1.0.0": {
+      "type": "project",
+      "path": "../Librerias/Librerias.fsproj",
+      "msbuildProject": "../Librerias/Librerias.fsproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "FSharp.Core >= 7.0.200"
+      "FSharp.Core >= 7.0.300",
+      "Librerias >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "/home/camila/.nuget/packages/": {}
+    "/home/rac/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/camila/Documents/programacion avanzada/IBProgramacionAvanzada_Final_Grupo4/src/Tetris/Tetris.fsproj",
+      "projectUniqueName": "/home/rac/IBProgramacionAvanzada_Final_Grupo4/Tetris/src/Tetris/Tetris.fsproj",
       "projectName": "Tetris",
-      "projectPath": "/home/camila/Documents/programacion avanzada/IBProgramacionAvanzada_Final_Grupo4/src/Tetris/Tetris.fsproj",
-      "packagesPath": "/home/camila/.nuget/packages/",
-      "outputPath": "/home/camila/Documents/programacion avanzada/IBProgramacionAvanzada_Final_Grupo4/src/Tetris/obj/",
+      "projectPath": "/home/rac/IBProgramacionAvanzada_Final_Grupo4/Tetris/src/Tetris/Tetris.fsproj",
+      "packagesPath": "/home/rac/.nuget/packages/",
+      "outputPath": "/home/rac/IBProgramacionAvanzada_Final_Grupo4/Tetris/src/Tetris/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/camila/.nuget/NuGet/NuGet.Config"
+        "/home/rac/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "/home/camila/.dotnet/sdk/7.0.203/FSharp/library-packs": {},
+        "/usr/share/dotnet/sdk/7.0.304/FSharp/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/home/rac/IBProgramacionAvanzada_Final_Grupo4/Tetris/src/Librerias/Librerias.fsproj": {
+              "projectPath": "/home/rac/IBProgramacionAvanzada_Final_Grupo4/Tetris/src/Librerias/Librerias.fsproj"
+            }
+          }
         }
       }
     },
@@ -143,7 +166,7 @@
           "FSharp.Core": {
             "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
             "target": "Package",
-            "version": "[7.0.200, )",
+            "version": "[7.0.300, )",
             "generatePathProperty": true
           }
         },
@@ -163,7 +186,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/home/camila/.dotnet/sdk/7.0.203/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.304/RuntimeIdentifierGraph.json"
       }
     }
   }

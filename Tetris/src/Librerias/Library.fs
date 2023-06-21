@@ -4,8 +4,6 @@ module Say =
     let hello name =
         printfn "Hello %s" name
 
-let rand = System.Random()
-
 module Mate =
     let randDir = (rand.Next(0, 2))
 
@@ -184,14 +182,6 @@ module UtilsView =
             canPrint <- true;
         else ();
 
-let mutable blocco: Blocco = new Blocco((Utils.initBloccoInt 3 3 0), 3, 6)
-
-blocco.generateRandom (rand.Next(1, 5))
-
-let mappa: Mappa = new Mappa(20, 20)
-
-mappa.initFloor
-
 module Control =
 
     let onKey (k: string): bool =
@@ -246,6 +236,6 @@ let rec gravity() =
             blocco.generateRandom (rand.Next(1, 5)) |> ignore
 
         gravity()
-        () // assurdo questo ahaha
+        ()
     }
     |> Async.Start
