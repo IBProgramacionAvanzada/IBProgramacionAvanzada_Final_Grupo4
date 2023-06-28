@@ -6,6 +6,9 @@ Tetris/src/Tetris/obj/project.assets.json
 Tetris/src/Tetris/obj/project.nuget.cache
 Tetris/src/Librerias/obj*
 Tetris/src/Tetris/obj*
+*.json
+*.cache
+*.dll
 *obj/
 *bin/
 pruebas_OtR/
