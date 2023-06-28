@@ -67,7 +67,7 @@ module Modelo =
         | Bloqueado 
         | Lanzado 
         | Linea 
-        | IncrementoNivel 
+    //    | IncrementoNivel 
         | FinDelJuego
 
     type Tablero = {
