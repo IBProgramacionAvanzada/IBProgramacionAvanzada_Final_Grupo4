@@ -10,7 +10,7 @@ module TiposTetris =
         | Rojo 
         | Magenta 
         | Amarillo
-        | Cyan 
+        | Cian 
         | Azul 
         | Plateado 
         | Verde
@@ -28,7 +28,7 @@ module TiposTetris =
         | Derecha 
         | Rotar
 
-    type EstadoJuego = {
+    type Tablero = {
         puntuacion: int
         juegoTerminado: bool
 
@@ -44,7 +44,7 @@ module TiposTetris =
         eventos: Evento list
     }     
     let formas = [
-        Cyan, [[X;X]
+        Cian, [[X;X]
                [X;X]]
         Rojo, [[X;X;X;X]]
         Verde, [[X;X;O]
