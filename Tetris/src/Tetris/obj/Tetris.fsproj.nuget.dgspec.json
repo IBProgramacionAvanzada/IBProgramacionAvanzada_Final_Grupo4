@@ -1,26 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "/home/camila/Documents/programacion avanzada/IBProgramacionAvanzada_Final_Grupo4/src/Tetris/Tetris.fsproj": {}
+    "/home/rac/IBProgramacionAvanzada_Final_Grupo4/Tetris/src/Tetris/Tetris.fsproj": {}
   },
   "projects": {
-    "/home/camila/Documents/programacion avanzada/IBProgramacionAvanzada_Final_Grupo4/src/Tetris/Tetris.fsproj": {
+    "/home/rac/IBProgramacionAvanzada_Final_Grupo4/Tetris/src/Librerias/Librerias.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/camila/Documents/programacion avanzada/IBProgramacionAvanzada_Final_Grupo4/src/Tetris/Tetris.fsproj",
-        "projectName": "Tetris",
-        "projectPath": "/home/camila/Documents/programacion avanzada/IBProgramacionAvanzada_Final_Grupo4/src/Tetris/Tetris.fsproj",
-        "packagesPath": "/home/camila/.nuget/packages/",
-        "outputPath": "/home/camila/Documents/programacion avanzada/IBProgramacionAvanzada_Final_Grupo4/src/Tetris/obj/",
+        "projectUniqueName": "/home/rac/IBProgramacionAvanzada_Final_Grupo4/Tetris/src/Librerias/Librerias.fsproj",
+        "projectName": "Librerias",
+        "projectPath": "/home/rac/IBProgramacionAvanzada_Final_Grupo4/Tetris/src/Librerias/Librerias.fsproj",
+        "packagesPath": "/home/rac/.nuget/packages/",
+        "outputPath": "/home/rac/IBProgramacionAvanzada_Final_Grupo4/Tetris/src/Librerias/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/camila/.nuget/NuGet/NuGet.Config"
+          "/home/rac/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "/home/camila/.dotnet/sdk/7.0.203/FSharp/library-packs": {},
+          "/usr/share/dotnet/sdk/7.0.304/FSharp/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -37,7 +37,7 @@
             "FSharp.Core": {
               "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
               "target": "Package",
-              "version": "[7.0.200, )",
+              "version": "[7.0.300, )",
               "generatePathProperty": true
             }
           },
@@ -57,7 +57,68 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/home/camila/.dotnet/sdk/7.0.203/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.304/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/rac/IBProgramacionAvanzada_Final_Grupo4/Tetris/src/Tetris/Tetris.fsproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/rac/IBProgramacionAvanzada_Final_Grupo4/Tetris/src/Tetris/Tetris.fsproj",
+        "projectName": "Tetris",
+        "projectPath": "/home/rac/IBProgramacionAvanzada_Final_Grupo4/Tetris/src/Tetris/Tetris.fsproj",
+        "packagesPath": "/home/rac/.nuget/packages/",
+        "outputPath": "/home/rac/IBProgramacionAvanzada_Final_Grupo4/Tetris/src/Tetris/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/rac/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "/usr/share/dotnet/sdk/7.0.304/FSharp/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/home/rac/IBProgramacionAvanzada_Final_Grupo4/Tetris/src/Librerias/Librerias.fsproj": {
+                "projectPath": "/home/rac/IBProgramacionAvanzada_Final_Grupo4/Tetris/src/Librerias/Librerias.fsproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "FSharp.Core": {
+              "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
+              "target": "Package",
+              "version": "[7.0.300, )",
+              "generatePathProperty": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.304/RuntimeIdentifierGraph.json"
         }
       }
     }
