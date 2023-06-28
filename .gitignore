@@ -1,3 +1,11 @@
+Tetris/src/Librerias/obj/Librerias.fsproj.nuget.dgspec.json
+Tetris/src/Librerias/obj/project.assets.json
+Tetris/src/Librerias/obj/project.nuget.cache
+Tetris/src/Tetris/obj/Tetris.fsproj.nuget.dgspec.json
+Tetris/src/Tetris/obj/project.assets.json
+Tetris/src/Tetris/obj/project.nuget.cache
+Tetris/src/Librerias/obj*
+Tetris/src/Tetris/obj*
 *obj/
 *bin/
 pruebas_OtR/
