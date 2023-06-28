@@ -9,18 +9,22 @@ module Say =
 module Modelo =
     let aleatorio = new System.Random ()
 
+    let ancho, alto = 10, 20
+    let posInicial = (ancho / 2 - 1, 0)
+    let puntajePorLinea = 100
+
     type Color = 
-    | Rojo
-    | Magenta
-    | Amarillo
-    | Cian
-    | Azul
-    | Plateado
-    | Verde
+        | Rojo
+        | Magenta
+        | Amarillo
+        | Cian
+        | Azul
+        | Plateado
+        | Verde
 
     type Marca = 
-    |X
-    |O
+        |X
+        |O
 
     let formas = [
             Cian, [
@@ -52,5 +56,33 @@ module Modelo =
             ]
         ]
     
-    
+    type Comando =
+        | Derecha
+        | Izquierda
+        | Rotar
 
+    type Evento =
+        | Movido 
+        | Rotado 
+        | Bloqueado 
+        | Lanzado 
+        | Linea 
+        | IncrementoNivel 
+        | FinDelJuego
+
+    type Tablero = {
+        puntaje: int
+        nivel: int
+        juegoFinalizado: bool
+
+        tiempoUltimoComando: float
+        tiempoUltimaCaida: float
+        tiempoUltimaLinea: float
+        lineasParaQuitar: (Color * int * int) list option
+
+        bloquesEstaticos: (Color * int * int) list
+        pos: int * int
+        forma: (Color * Marca list list) option
+        siguiente: Color * Marca list list
+        eventos: Evento list
+    } 
