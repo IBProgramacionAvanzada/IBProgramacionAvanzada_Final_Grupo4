@@ -4,8 +4,6 @@
     <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="../Librerias/Control.fs" />
-    <Compile Include="../Librerias/Dominio.fs" />
     <Compile Include="Programa.fs" />
   </ItemGroup>
   <ItemGroup>
