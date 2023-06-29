@@ -229,7 +229,7 @@ let ``Averigua las lineas que pueden ser dadas de baja, acá hay 2`` () =
 [<Test>]
 let ``Elimina las lineas completadas del tablero y suma puntos`` () = 
     let hayTablero = { initTablero with 
-                                          puntuacion = 600
+                                          puntuacion = 600  // tiene que sumar 200 puntos porque hay 2 filas para borrar
                                           caidaAnteriorTiempo = 1000
                                           bloquesEstaticos = [(Cian, 0, 18); (Cian, 1, 18); (Cian, 0, 19); (Cian, 1, 19)] @
                                                              [(Amarillo, 0, 15); (Amarillo, 0, 16); (Amarillo, 0, 17); (Amarillo, 1, 17)] @
@@ -248,10 +248,11 @@ let ``Elimina las lineas completadas del tablero y suma puntos`` () =
                                                                  (Amarillo, 0, 17); (Amarillo, 1, 17); (Verde, 6, 17); (Rojo, 7, 17);
                                                                  (Cian, 8, 17); (Cian, 9, 17); (Azul, 3, 17); (Azul, 4, 17); (Gris, 5, 17);
                                                                  (Rojo, 2, 17)]
+                                          proxForma = (Rojo, [[X; X; X; X]])
                                           eventos = []
                                       }
     let tableroLimpiado = { 
-                                        puntuacion = 800
+                                        puntuacion = 800  // lo dicho arriba
                                         juegoTerminado = false
                                         caidaAnteriorTiempo = 1000.0
                                         lineasAEliminar = None
@@ -266,10 +267,76 @@ let ``Elimina las lineas completadas del tablero y suma puntos`` () =
                                         eventos = [] 
                                     }
     let esperado = tableroLimpiado
-    let calculado = eliminoLineas 1000 tableroLimpiado
+    let calculado = eliminoLineas 1000 hayTablero
     
     Assert.AreEqual(esperado, calculado)
 
 [<Test>]
-let ``Avanza el estado del juego`` () = 
-    Assert.Pass()
+let ``Intenta eliminar líneas en un tablero que no tiene filas completas`` () = 
+    let esteTablero = { 
+                                        puntuacion = 800  
+                                        juegoTerminado = false
+                                        caidaAnteriorTiempo = 1000.0
+                                        lineasAEliminar = None
+                                        bloquesEstaticos = [(Cian, 0, 19); (Cian, 1, 19); (Amarillo, 0, 17); (Amarillo, 0, 18);
+                                                            (Gris, 2, 19); (Gris, 3, 19); (Gris, 4, 19); (Verde, 5, 19); (Rojo, 7, 19);
+                                                            (Rojo, 7, 18); (Cian, 8, 19); (Cian, 9, 19); (Cian, 8, 18); (Cian, 9, 18);
+                                                            (Azul, 3, 18); (Gris, 4, 18); (Gris, 5, 18); (Gris, 6, 18); (Rojo, 2, 18);
+                                                            (Rojo, 2, 17)]
+                                        pos = (7, 5)
+                                        forma = Some (Verde, [[O; X]; [X; X]; [X; O]])
+                                        proxForma = (Rojo, [[X; X; X; X]])
+                                        eventos = [] 
+                                    }
+    let esperado = esteTablero
+    let calculado = eliminoLineas 1000 esteTablero
+    
+    Assert.AreEqual(esperado, calculado)
+
+[<Test>]
+let ``Avanza el estado del juego, elimina filas, suma puntaje`` () = 
+    let tableroToma64 = { 
+                                      puntuacion = 600
+                                      juegoTerminado = false
+                                      caidaAnteriorTiempo = 1000.0
+                                      lineasAEliminar =
+                                                        Some
+                                                           [(Cian, 0, 18); (Cian, 1, 18); (Gris, 3, 18); (Verde, 5, 18);
+                                                            (Verde, 6, 18); (Rojo, 7, 18); (Cian, 8, 18); (Cian, 9, 18); (Azul, 4, 18);
+                                                            (Rojo, 2, 18); (Amarillo, 0, 17); (Amarillo, 1, 17); (Verde, 6, 17);
+                                                            (Rojo, 7, 17); (Cian, 8, 17); (Cian, 9, 17); (Azul, 3, 17); (Azul, 4, 17);
+                                                            (Gris, 5, 17); (Rojo, 2, 17)]
+                                      bloquesEstaticos =
+                                                        [(Cian, 0, 18); (Cian, 1, 18); (Cian, 0, 19); (Cian, 1, 19);
+                                                         (Amarillo, 0, 15); (Amarillo, 0, 16); (Amarillo, 0, 17); (Amarillo, 1, 17);
+                                                         (Gris, 3, 18); (Gris, 2, 19); (Gris, 3, 19); (Gris, 4, 19); (Verde, 6, 17);
+                                                         (Verde, 5, 18); (Verde, 6, 18); (Verde, 5, 19); (Rojo, 7, 19); (Rojo, 7, 18);
+                                                         (Rojo, 7, 17); (Rojo, 7, 16); (Cian, 8, 18); (Cian, 9, 18); (Cian, 8, 19);
+                                                         (Cian, 9, 19); (Cian, 8, 17); (Cian, 9, 17); (Cian, 8, 16); (Cian, 9, 16);
+                                                         (Azul, 3, 16); (Azul, 3, 17); (Azul, 4, 17); (Azul, 4, 18); (Gris, 5, 17);
+                                                         (Gris, 4, 16); (Gris, 5, 16); (Gris, 6, 16); (Rojo, 2, 18); (Rojo, 2, 17);
+                                                         (Rojo, 2, 16); (Rojo, 2, 15)]
+                                      pos = (7, 5)
+                                      forma = Some (Verde, [[O; X]; [X; X]; [X; O]])
+                                      proxForma = (Rojo, [[X; X; X; X]])
+                                      eventos = [ MovimientoHorizontal; Rotacion; Rotacion; MovimientoHorizontal ] 
+                                  }
+    let tableroFinal = { 
+                                    puntuacion = 800
+                                    juegoTerminado = false
+                                    caidaAnteriorTiempo = 2014.0
+                                    lineasAEliminar = None
+                                    bloquesEstaticos =
+                                                      [(Cian, 0, 19); (Cian, 1, 19); (Amarillo, 0, 17); (Amarillo, 0, 18);
+                                                       (Gris, 2, 19); (Gris, 3, 19); (Gris, 4, 19); (Verde, 5, 19); (Rojo, 7, 19);
+                                                       (Rojo, 7, 18); (Cian, 8, 19); (Cian, 9, 19); (Cian, 8, 18); (Cian, 9, 18);
+                                                       (Azul, 3, 18); (Gris, 4, 18); (Gris, 5, 18); (Gris, 6, 18); (Rojo, 2, 18);
+                                                       (Rojo, 2, 17)]
+                                    pos = (7, 5)
+                                    forma = Some (Verde, [[X; X; O]; [O; X; X]])
+                                    proxForma = (Rojo, [[X; X; X; X]])
+                                    eventos = [Rotacion] 
+                                }
+    let calculado = avanzar 2014 (Some Rotar) false tableroToma64
+
+    Assert.AreEqual(tableroFinal, calculado)
