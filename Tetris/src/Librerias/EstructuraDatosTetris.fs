@@ -12,15 +12,15 @@ module TiposTetris =
         | Amarillo
         | Cian 
         | Azul 
-        | Plateado 
+        | Gris
         | Verde
 
     type Evento = 
-        | Movido 
-        | Rotado 
-        | Bloqueado 
-        | Caido 
-        | Linea 
+        | MovimientoHorizontal 
+        | Rotacion 
+        | Bloqueo 
+        | BloqueEnPosFinal 
+        | LineaEliminada
         | FinJuego
 
     type Comando = 
@@ -32,9 +32,7 @@ module TiposTetris =
         puntuacion: int
         juegoTerminado: bool
 
-        comandoAnteriorTiempo: float
         caidaAnteriorTiempo: float
-        lineaAnteriorTiempo: float
         lineasAEliminar: (Color * int * int) list option
 
         bloquesEstaticos: (Color * int * int) list
@@ -55,6 +53,6 @@ module TiposTetris =
                    [X;O;O]]
         Magenta, [[X;X;X]
                   [O;O;X]]
-        Plateado, [[X;X;X]
-                   [O;X;O]]
+        Gris, [[X;X;X]
+               [O;X;O]]
     ]
