@@ -35,7 +35,9 @@ module Funciones =
                     | Izquierda -> (x - 1, y)
                     | Derecha -> (x + 1, y)
                     | Rotar -> (x, y)
-                let nuevaForma = bloques |> match c with | Rotar -> rotar | _ -> id
+                let nuevaForma = bloques |> match c with 
+                                                                    | Rotar -> rotar 
+                                                                    | _ -> id
                 let nuevosBloques = traslacionBloques (nx, ny) nuevaForma
                 
                 if fueraRango nuevosBloques || seSuperponen nuevosBloques tablero then 
