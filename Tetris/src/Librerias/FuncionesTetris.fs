@@ -22,13 +22,12 @@ module Funciones =
         let bloquesActuales = tablero.bloquesEstaticos |> List.map (fun (_,x,y) -> x,y)
         List.except bloquesActuales bloques <> bloques
 
-    let procesoComando tiempo comando tablero =
+    let procesoComando comando tablero =
         match comando with
         | None -> tablero
         | Some c ->
             match tablero.forma with
             | None -> tablero
-            | Some _ when tiempo - tablero.comandoAnteriorTiempo < tiempoEntreComandos -> tablero
             | Some (color, bloques) ->
                 let (x, y) = tablero.pos
                 let (nx, ny) = 
@@ -40,19 +39,18 @@ module Funciones =
                 let nuevosBloques = traslacionBloques (nx, ny) nuevaForma
                 
                 if fueraRango nuevosBloques || seSuperponen nuevosBloques tablero then 
-                    {tablero with eventos = Bloqueado::tablero.eventos}
+                    {tablero with eventos = Bloqueo::tablero.eventos}
                 else
                     let evento = 
                         match c with
-                        | Rotar -> Rotado
-                        | Izquierda | Derecha -> Movido
+                        | Rotar -> Rotacion
+                        | Izquierda | Derecha -> MovimientoHorizontal
                     {tablero with 
                         forma = Some (color, nuevaForma)
                         pos = (nx, ny)
-                        eventos = evento::tablero.eventos
-                        comandoAnteriorTiempo = tiempo}
+                        eventos = evento::tablero.eventos}
 
-    let lanzar tiempo teclaAbajoPresionada tablero = 
+    let caida tiempo teclaAbajoPresionada tablero = 
         match tablero.forma with
         | None -> tablero
         | Some _ when 
@@ -66,7 +64,7 @@ module Funciones =
 
             let nuevosBloques = traslacionBloques nuevaPos bloques
             if not (fueraRango nuevosBloques) && not (seSuperponen nuevosBloques tablero) then 
-                {tablero with pos = nuevaPos; caidaAnteriorTiempo = tiempo; eventos = Caido::tablero.eventos}
+                {tablero with pos = nuevaPos; caidaAnteriorTiempo = tiempo; eventos = BloqueEnPosFinal::tablero.eventos}
             else    
                 let bloquesActuales = traslacionBloques tablero.pos bloques |> List.map (fun (x,y) -> color, x, y)
                 {tablero with bloquesEstaticos = tablero.bloquesEstaticos @ bloquesActuales; forma = None }
@@ -107,22 +105,17 @@ module Funciones =
                 puntuacion = nuevaPuntuacion
                 eventos = tablero.eventos
                 caidaAnteriorTiempo = tiempo
-                comandoAnteriorTiempo = tiempo
                 lineasAEliminar = None}
 
     let avanzar tiempo comando teclaAbajoPresionada tablero =
-        if tiempo - tablero.lineaAnteriorTiempo < tiempoEntreLineas then 
-            {tablero with eventos = []}
-        else
-            let resultado =
-                {tablero with eventos = [] } 
-                |> eliminoLineas tiempo
-                |> proxForma
-                |> procesoComando tiempo comando
-                |> lanzar tiempo teclaAbajoPresionada
-            let lineas = obtengoLineas resultado
-            if List.isEmpty lineas then resultado else 
-                {resultado with 
-                    eventos = Linea::tablero.eventos
-                    lineaAnteriorTiempo = tiempo
-                    lineasAEliminar = Some lineas}
+        let resultado =
+            {tablero with eventos = [] } 
+            |> eliminoLineas tiempo
+            |> proxForma
+            |> procesoComando comando
+            |> caida tiempo teclaAbajoPresionada
+        let lineas = obtengoLineas resultado
+        if List.isEmpty lineas then resultado else 
+            {resultado with 
+                eventos = LineaEliminada::tablero.eventos
+                lineasAEliminar = Some lineas}
