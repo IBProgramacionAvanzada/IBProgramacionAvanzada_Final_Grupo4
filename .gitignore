@@ -15,3 +15,14 @@ Tetris/src/Tetris/obj*
 pruebas_OtR/
 
 .fake
+Tetris/src/Librerias/obj/Librerias.fsproj.nuget.dgspec.json
+Tetris/src/Librerias/obj/Librerias.fsproj.nuget.dgspec.json
+Tetris/src/Librerias/obj/project.assets.json
+Tetris/src/Librerias/obj/project.nuget.cache
+Tetris/src/Tetris/obj/project.assets.json
+Tetris/src/Tetris/obj/project.nuget.cache
+Tetris/src/Tetris/obj/Tetris.fsproj.nuget.dgspec.json
+Tetris/tests/TetrisTests/bin/Debug/net7.0/Librerias.pdb
+Tetris/tests/TetrisTests/bin/Debug/net7.0/TetrisTests.pdb
+Tetris/tests/TetrisTests/obj/Debug/net7.0/TetrisTests.fsproj.FileListAbsolute.txt
+Tetris/tests/TetrisTests/obj/Debug/net7.0/TetrisTests.pdb
