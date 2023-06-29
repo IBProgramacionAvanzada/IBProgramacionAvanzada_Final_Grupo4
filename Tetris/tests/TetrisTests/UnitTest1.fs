@@ -42,15 +42,45 @@ let ``Traslacion de bloque verde`` () =
 
 [<Test>]
 let ``Bloques se superponen en el tablero`` () =
-    (* let unTablero = {
+    // El tablero es de 10x20 celdas
 
-    }
-    let bloques = 
-    let resultado = seSuperponen bloques unTablero
+    let formaCian = formas[0]
+    let dropCian = traslacionBloques (0, 18) (snd formaCian)
+    let formaAmarillo = formas[4]
+    let rotAmarillo = snd formaAmarillo
+                                                |> rotar
+                                                |> rotar
+                                                |> rotar
+    let dropAmarillo = traslacionBloques (0, 15) rotAmarillo
+    let formaGris = formas[6]
+    let rotGris = snd formaGris
+                                            |> rotar
+                                            |> rotar
+    let dropGris = traslacionBloques (2, 18) rotGris
+    let formaVerde = formas[2]
+    let rotVerde = snd formaVerde
+                                            |> rotar
+    let dropVerde = traslacionBloques (5, 17) rotVerde
+    let estaticoCian = dropCian |> List.map (fun (x,y) -> fst formaCian, x, y)
+    let estaticoAmarillo = dropAmarillo |> List.map (fun (x,y) -> fst formaAmarillo, x, y)
+    let estaticoGris = dropGris |> List.map (fun (x,y) -> fst formaGris, x, y)
+    let estaticoVerde = dropVerde |> List.map (fun (x,y) -> fst formaVerde, x, y)
 
-    assert (resultado = true) *)
-    Assert.Pass()
+    let unTablero = { initTablero with 
+                                    bloquesEstaticos = estaticoCian @ estaticoAmarillo @ 
+                                                        estaticoGris @ estaticoVerde 
+                            }
+    let unBloque = match unTablero.forma with 
+                                                    | None -> (SinColor, [[]])
+                                                    | Some B -> B
+    let nuevoBloque = unBloque
+                                        |> snd
+                                        |> traslacionBloques unTablero.pos
 
+    let resultado = seSuperponen nuevoBloque unTablero
+
+    assert (resultado = false)
+    
 [<Test>]
 let ``Procesamiento de un comando`` () = 
     Assert.Pass()

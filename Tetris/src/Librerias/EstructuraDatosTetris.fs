@@ -14,6 +14,7 @@ module TiposTetris =
         | Azul 
         | Gris
         | Verde
+        | SinColor
 
     type Evento = 
         | MovimientoHorizontal 
