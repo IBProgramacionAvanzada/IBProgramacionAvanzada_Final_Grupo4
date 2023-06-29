@@ -52,7 +52,7 @@ module Funciones =
                         pos = (nx, ny)
                         eventos = evento::tablero.eventos}
 
-    let caida tiempo teclaAbajoPresionada tablero = 
+    let lanzar tiempo teclaAbajoPresionada tablero = 
         match tablero.forma with
         | None -> tablero
         | Some _ when 
@@ -66,7 +66,7 @@ module Funciones =
 
             let nuevosBloques = traslacionBloques nuevaPos bloques
             if not (fueraRango nuevosBloques) && not (seSuperponen nuevosBloques tablero) then 
-                {tablero with pos = nuevaPos; caidaAnteriorTiempo = tiempo; eventos = BloqueEnPosFinal::tablero.eventos}
+                {tablero with pos = nuevaPos; caidaAnteriorTiempo = tiempo; eventos = Lanzado::tablero.eventos}
             else    
                 let bloquesActuales = traslacionBloques tablero.pos bloques |> List.map (fun (x,y) -> color, x, y)
                 {tablero with bloquesEstaticos = tablero.bloquesEstaticos @ bloquesActuales; forma = None }
@@ -115,7 +115,7 @@ module Funciones =
             |> eliminoLineas tiempo
             |> proxForma
             |> procesoComando comando
-            |> caida tiempo teclaAbajoPresionada
+            |> lanzar tiempo teclaAbajoPresionada
         let lineas = obtengoLineas resultado
         if List.isEmpty lineas then resultado else 
             {resultado with 

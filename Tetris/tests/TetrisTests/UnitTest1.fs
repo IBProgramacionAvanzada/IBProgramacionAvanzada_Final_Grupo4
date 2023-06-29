@@ -120,8 +120,15 @@ let ``Bloques se superponen en el tablero`` () =
     assert (resultado = true)
     
 [<Test>]
-let ``Procesamiento de un comando`` () = 
-    Assert.Pass()
+let ``Procesamiento de un comando: Izquierda`` () = 
+    let unTablero = initTablero
+    let esperado = { initTablero with 
+                                pos = (3, 0)
+                                eventos = [ MovimientoHorizontal ]
+                         }
+    let calculado = procesoComando (Some Izquierda) unTablero
+
+    Assert.AreEqual(esperado, calculado)
 
 [<Test>]
 let ``Lanzamiento de una ficha hacia el fondo`` () = 

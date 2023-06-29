@@ -20,7 +20,7 @@ module TiposTetris =
         | MovimientoHorizontal 
         | Rotacion 
         | Bloqueo 
-        | BloqueEnPosFinal 
+        | Lanzado 
         | LineaEliminada
         | FinJuego
 
