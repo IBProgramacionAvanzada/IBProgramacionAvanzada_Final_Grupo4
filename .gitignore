@@ -8,9 +8,10 @@ Tetris/src/Librerias/obj*
 Tetris/src/Tetris/obj*
 *.json
 *.cache
+*.pdb
 *.dll
-*obj/
-*bin/
+*/*/*/obj/
+*/*/*/bin/
 pruebas_OtR/
 
 .fake
